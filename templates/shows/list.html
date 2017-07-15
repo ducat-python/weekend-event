@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if object_list %}
+
+            <div class="container">
+                {% for object in object_list %}
+                <div class="row">
+                    <div class="s6">
+                        <h4>
+                            {{ object.title }}
+                        </h4>
+                    </div>
+                    <div class="s6">
+                        {{ object.description }}
+                    </div>
+                    <form action="{% url 'attendees:register' %}" method="get">
+                        {%  csrf_token %}
+                        <input type="hidden" name="pk" id="pk" value="{{ object.pk }}">
+                        <input type="submit" class="btn" value="Book This Movie">
+                    </form>
+                </div>
+            {% endfor %}
+            </div>
+
+
+    {% endif %}
+
+
+{% endblock %}

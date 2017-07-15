@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="s6">
+                <h4>{{ object.title }}</h4>
+                <p>{{ object.description }}</p>
+            </div>
+            <div class="s6">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form }}
+                    <input type="hidden" name="pk" id="pk" value="{{ object.pk }}">
+                    <input type="submit" class="btn" value="Confirm Booking">
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
