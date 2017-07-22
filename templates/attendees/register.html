@@ -13,7 +13,7 @@
                     {% csrf_token %}
                     {{ form }}
                     <input type="hidden" name="pk" id="pk" value="{{ object.pk }}">
-                    <input type="submit" class="btn" value="Confirm Booking">
+                    <input type="submit" class="btn" value="Confirm Booking" {{disabled}}>
                 </form>
             </div>
         </div>
